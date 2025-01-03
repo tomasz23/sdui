@@ -1,4 +1,4 @@
-package au.com.genom.sdui.sdui
+package au.com.genom.sdui
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -50,13 +50,13 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    //loadJsonData();
+    loadJsonData();
   }
 
   Future<void> loadJsonData() async {
     try {
       // Load the JSON file
-      String jsonString = await rootBundle.loadString('assets/c1.json');
+      String jsonString = await rootBundle.loadString('assets/c2.json');
       // Decode the JSON
       Map<String, dynamic> data = json.decode(jsonString);
       setState(() {
@@ -87,13 +87,18 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: screenData == null
           ? CircularProgressIndicator()
-          : Container(
-              alignment: Alignment.center,
-              child: Text("Hello universe!"),
-            ),
-      // : DivKitView(
-      //     data: screenData!,
-      //   ), // This trailing comma makes auto-formatting nicer for build methods.
+          : SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Container(
+                    child: DivKitView(
+                      data: screenData!,
+                    ),
+                  ),
+                ],
+              ),
+            ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
